@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component
 
 @Component
 class AccountMapper {
-
     fun mapToAccountDto(account: Account): AccountDTO {
         val accountDTO = AccountDTO()
         accountDTO.firstName = account.firstName
@@ -15,5 +14,25 @@ class AccountMapper {
         accountDTO.email = account.email
 
         return accountDTO
+    }
+
+    fun mapToAccountResponseList(accountList: List<Account>): List<AccountDTO> {
+        val accountListDTO = mutableListOf<AccountDTO>()
+        accountList.forEach {
+            accountListDTO.add(mapToAccountDto(it))
+        }
+
+        return accountListDTO
+    }
+
+    fun mapToAccountUpdate(account: Account): Account {
+        val updatedAccount = Account()
+        updatedAccount.id = account.id
+        updatedAccount.firstName = account.firstName
+        updatedAccount.lastName = account.lastName
+        updatedAccount.username = account.username
+        updatedAccount.email = account.email
+
+        return updatedAccount
     }
 }

@@ -10,7 +10,7 @@ interface AccountService {
 
     fun getAccount(accountId: Long): Account
 
-    fun updateAccount(accountId: Long, update: Account)
+    fun updateAccount(accountId: Long, update: Account): Account
 
     fun deleteAccount(accountId: Long)
 }
